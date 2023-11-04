@@ -6,8 +6,8 @@ Version: 1.1
 Author: Ariel
 */
 function enqueue_custom_scripts_and_styles() {
-    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'custom.js', array('jquery', 'jquery-ui-sortable'), '1.0', true);
-    wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'custom.css', array(), '1.0');
+    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'admin/js/script.js', array('jquery', 'jquery-ui-sortable'), '1.0', true);
+    wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'admin/css/style.css', array(), '1.0');
 }
 
 add_action('admin_enqueue_scripts', 'enqueue_custom_scripts_and_styles');
@@ -111,10 +111,13 @@ add_action('wp_footer', 'display_category_meta_tags', 20); // Prioridade 20
 // Adicione a função custom_order_by_plugin_field ao seu plugin com prioridade 20
 function custom_order_by_plugin_field($clauses, $query) {
     if (is_product_category()) {
+        error_log('Custom Order Debug: Inside custom_order_by_plugin_field'); // Mensagem de depuração
         global $wpdb, $order_value;
 
         $term_id = get_queried_object_id();
         $product_ordering = get_term_meta($term_id, 'product_ordering', true);
+
+        error_log('Custom Order Debug: Product Ordering: ' . $product_ordering); // Mensagem de depuração
 
         if ($product_ordering === 'order_value') {
             // Ordenar por order value
@@ -125,6 +128,9 @@ function custom_order_by_plugin_field($clauses, $query) {
 
     return $clauses;
 }
+
+
+
 
 
 
