@@ -1,0 +1,11 @@
+/* Estilos para elementos arrastáveis */
+#sortable-list li {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+}
+
+/* Estilos para campos numéricos ocultos */
+.hidden-field {
+    display: none;
+}

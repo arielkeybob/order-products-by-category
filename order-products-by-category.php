@@ -2,9 +2,21 @@
 /*
 Plugin Name: Order Products to each category page
 Description: Mostra a lista de produtos da categoria na página de edição da categoria com campos para modificar a ordem de exibição na página da categoria.
-Version: 1.0
+Version: 1.1
 Author: Ariel
 */
+function enqueue_custom_scripts_and_styles() {
+    wp_enqueue_script('custom-script', plugin_dir_url(__FILE__) . 'custom.js', array('jquery', 'jquery-ui-sortable'), '1.0', true);
+    wp_enqueue_style('custom-style', plugin_dir_url(__FILE__) . 'custom.css', array(), '1.0');
+}
+
+add_action('admin_enqueue_scripts', 'enqueue_custom_scripts_and_styles');
+
+// Variável global para armazenar o valor de ordenação
+global $order_value;
+
+// Adicione um campo personalizado na página de edição de categoria para exibir produtos
+add_action('product_cat_edit_form_fields', 'display_category_products_field', 20); // Prioridade 20
 
 // Variável global para armazenar o valor de ordenação
 global $order_value;
@@ -19,29 +31,26 @@ function display_category_products_field($term) {
     echo '<tr class="form-field">';
     echo '<th scope="row">Produtos na Categoria</th>';
     echo '<td>';
-    
+
     if (empty($products)) {
         echo 'Nenhum produto nesta categoria.';
     } else {
-        echo '<ul>';
+        echo '<ul id="sortable-list">';
         foreach ($products as $product) {
             $product_id = $product->ID;
             $order_value = get_post_meta($product_id, 'order_in_category_' . $category_id, true);
 
             echo '<li>';
             echo '<a href="' . get_edit_post_link($product_id) . '">' . $product->post_title . '</a>';
-            echo '<input type="number" name="order_in_category[' . $product_id . ']" value="' . esc_attr($order_value) . '" step="1">';
+            echo '<input type="hidden" class="hidden-field" name="order_in_category[' . $product_id . ']" value="' . esc_attr($order_value) . '">';
             echo '</li>';
         }
         echo '</ul>';
     }
-    
+
     echo '</td>';
     echo '</tr>';
 }
-
-
-
 
 // Salva os valores do campo numérico personalizado dos produtos associados a essa categoria
 add_action('edited_product_cat', 'save_category_products_order', 10, 2); // Prioridade 10
@@ -53,6 +62,9 @@ function save_category_products_order($term_id, $tt_id) {
         }
     }
 }
+
+// Outros trechos do código PHP permanecem inalterados
+
 
 // Função de depuração para mostrar os valores dos campos no console na página de frontend
 /*
