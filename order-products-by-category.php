@@ -22,16 +22,20 @@ function display_category_products_field($term) {
     $category_id = $term->term_id;
     $products = get_category_products($category_id);
 
-    // Classifique os produtos com base na ordem personalizada
-    usort($products, function($a, $b) use ($category_id) {
-        $order_a = get_post_meta($a->ID, 'order_in_category_' . $category_id, true);
-        $order_b = get_post_meta($b->ID, 'order_in_category_' . $category_id, true);
-        return $order_a - $order_b;
-    });
+    // Obtenha a opção de ordenação salva
+    $product_ordering = get_term_meta($term->term_id, 'product_ordering', true);
 
+    // Exiba o campo de seleção para ordenação
     echo '<tr class="form-field">';
     echo '<th scope="row">Produtos na Categoria</th>';
     echo '<td>';
+
+    // Campo de seleção para a ordenação
+    echo '<label for="product_ordering">Ordenação:</label>';
+    echo '<select id="product_ordering" name="product_ordering">';
+    echo '<option value="title" ' . selected('title', $product_ordering, false) . '>Por Título</option>';
+    echo '<option value="order_value" ' . selected('order_value', $product_ordering, false) . '>Por Order Value</option>';
+    echo '</select>';
 
     if (empty($products)) {
         echo 'Nenhum produto nesta categoria.';
@@ -41,7 +45,7 @@ function display_category_products_field($term) {
             $product_id = $product->ID;
             $order_value = get_post_meta($product_id, 'order_in_category_' . $category_id, true);
             if (empty($order_value)) {
-                $order_value = 0; // Defina um valor padrão aqui, por exemplo, 0.
+                $order_value = 0;
             }
 
             echo '<li>';
@@ -56,6 +60,8 @@ function display_category_products_field($term) {
     echo '</tr>';
 }
 
+
+
 // Salva os valores do campo numérico personalizado dos produtos associados a essa categoria
 add_action('edited_product_cat', 'save_category_products_order', 10, 2); // Prioridade 10
 
@@ -65,7 +71,13 @@ function save_category_products_order($term_id, $tt_id) {
             update_post_meta($product_id, 'order_in_category_' . $term_id, $order_value);
         }
     }
+
+    // Salvar a opção de ordenação selecionada
+    $product_ordering = isset($_POST['product_ordering']) ? sanitize_text_field($_POST['product_ordering']) : 'title';
+    update_term_meta($term_id, 'product_ordering', $product_ordering);
 }
+
+
 
 // Outros trechos do código PHP permanecem inalterados
 
@@ -101,18 +113,20 @@ function custom_order_by_plugin_field($clauses, $query) {
     if (is_product_category()) {
         global $wpdb, $order_value;
 
-        // Verifique se $order_value está definida
-        if (isset($order_value)) {
-            $orderby = "ORDER BY $order_value+0 ASC"; // +0 para garantir que seja tratado como um número
-            $clauses['orderby'] = $orderby;
+        $term_id = get_queried_object_id();
+        $product_ordering = get_term_meta($term_id, 'product_ordering', true);
 
-            // Remova a ordenação por 'menu_order' e qualquer outra ordenação padrão
-            $clauses['orderby'] = '';
+        if ($product_ordering === 'order_value') {
+            // Ordenar por order value
+            $orderby = "ORDER BY $order_value+0 ASC";
+            $clauses['orderby'] = $orderby;
         }
     }
 
     return $clauses;
 }
+
+
 
 // Obtém a lista de produtos pertencentes a uma categoria
 function get_category_products($category_id) {
