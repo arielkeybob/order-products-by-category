@@ -12,6 +12,8 @@ include_once('includes/product-ordering.php');
 include_once('includes/utility-functions.php');
 include_once('includes/plugin-init.php');
 include_once('includes/auto-adjustments.php');
+include_once('includes/settings-page.php');
+
 
 // Variável global para armazenar o valor de ordenação
 global $order_value;
