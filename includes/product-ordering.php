@@ -3,11 +3,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-// Add the custom_order_by_order_value function to pre_get_posts action hook
+// Adiciona a função custom_order_by_order_value ao gancho de ação pre_get_posts
 add_action('pre_get_posts', 'custom_order_by_order_value');
 
 function custom_order_by_order_value($query) {
-    if (!is_admin() && $query->is_main_query() && is_product_category()) {
+    // Verificar se a ordenação está ativada
+    $ordering_enabled = get_option('opbycat_enable_ordering') === 'yes';
+
+    if (!is_admin() && $query->is_main_query() && is_product_category() && $ordering_enabled) {
         $category_id = get_queried_object_id();
         $product_ordering = get_term_meta($category_id, 'product_ordering', true);
 
@@ -33,12 +36,6 @@ function custom_order_by_order_value($query) {
             $query->set('orderby', 'title');
             $query->set('order', 'ASC');
         }
-        // Adicionar a condição para a opção "default"
-        elseif ($product_ordering === 'default') {
-            // Não faça nenhuma alteração na consulta, mantenha a ordem padrão do WordPress
-            // Não é necessário adicionar nenhum código aqui
-        }
+        // A opção "default" mantém a ordenação padrão do WordPress
     }
 }
-add_action('pre_get_posts', 'custom_order_by_order_value');
-
