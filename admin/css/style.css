@@ -9,3 +9,18 @@
 .hidden-field {
     display: none;
 }
+
+
+.ui-sortable-handle{
+    background: #f4f4f4;
+}
+
+/* Quando o mouse está sobre o item arrastável */
+.ui-sortable-handle:hover {
+    cursor: grab;
+}
+
+/* Quando o item está sendo arrastado */
+.ui-sortable-handle:active {
+    cursor: grabbing;
+}
