@@ -2,7 +2,7 @@
 /*
 Plugin Name: Order Products to each category page
 Description: Mostra a lista de produtos da categoria na página de edição da categoria com campos para modificar a ordem de exibição na página da categoria.
-Version: 1.1
+Version: 1.2
 Author: Ariel
 */
 
@@ -17,7 +17,7 @@ include_once('includes/auto-adjustments.php');
 global $order_value;
 
 
-// Outros trechos do código PHP permanecem inalterados
+
 
 
 
