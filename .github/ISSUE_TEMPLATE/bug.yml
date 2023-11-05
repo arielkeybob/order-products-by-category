@@ -1,0 +1,62 @@
+name: "🐞 Bug Report"
+description: "Did you find a bug on Order Products by Category for WooCommerceand can reproduce it consistently? Report it here."
+labels: ["status/awaiting_triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ BEFORE POSTING YOUR ISSUE
+        - 🐞 Please create GitHub issues only for 'Order Products by Category for WooCommerce' Bug Reports.
+        - ❔ If you have questions or need support, please open an issue in the plugin's GitHub repository.
+
+        ### 🙏 Best Practices
+        - 🔍 **Search Before Posting**: Search for similar issues to prevent duplicates.
+        - 🆕 **Stay Up-to-date**: Ensure you're using the latest version of 'Order Products by Category for WooCommerce', WooCommerce, WordPress, and your theme.
+        - 🔬 **Isolate the Problem**: Deactivate all plugins except 'Order Products by Category for WooCommerce' and switch to a default theme. If the issue is resolved, reactivate everything one by one to identify the conflict.
+        - 🧩 **Contact 3rd-party Support**: If the issue involves third-party software, please contact their support first.
+
+        ## THE ISSUE
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: "Prerequisites"
+      options:
+        - label: "I have searched for similar issues in both open and closed tickets and cannot find a duplicate."
+          required: true
+        - label: "The issue still exists against the latest stable version of Order Products by Category for WooCommerce."
+          required: true
+  - type: textarea
+    id: description
+    validations:
+      required: true
+    attributes:
+      label: "Description"
+      description: "Describe the problem. What caused the issue? What did you expect to happen and what actually happened? Please be as descriptive as possible. Attach screenshots, screen recordings, and related links."
+  - type: textarea
+    id: steps_to_reproduce
+    validations:
+      required: true
+    attributes:
+      label: "Steps to reproduce"
+      description: "List all the steps needed to reproduce the issue in detail, so we can replicate it ourselves on our own installation. Be thorough, we won't be able to reproduce it if you don't explain how."
+      placeholder: "1) ... 2) ... 3) ..."
+  - type: checkboxes
+    id: isolating_the_problem
+    attributes:
+      label: "Isolating the problem"
+      options:
+        - label: "This bug happens with only 'Order Products by Category for WooCommerce' active."
+        - label: "This bug happens with a default WordPress theme active."
+        - label: "I can reproduce this bug consistently using the steps above."
+  - type: textarea
+    id: system_info
+    validations:
+      required: true
+    attributes:
+      label: "System Info"
+      description: "Please share your System Info from your WordPress Dashboard > 'Order Products by Category for WooCommerce' > System info, and paste it below."
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        ⚠️ Please follow all the instructions indicated above, and fill all the required fields with valid information. We reserve the right to close issues that do not comply with these guidelines without any warning.
