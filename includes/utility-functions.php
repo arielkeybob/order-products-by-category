@@ -18,7 +18,11 @@ function get_category_products($category_id) {
                 'operator' => 'IN',
             ),
         ),
+        'orderby' => 'meta_value_num', // Ordenar por valor numérico da meta
+        'meta_key' => 'order_in_category_' . $category_id, // A chave da meta para ordenar
+        'order' => 'ASC' // Ordem ascendente
     );
 
     return get_posts($args);
 }
+

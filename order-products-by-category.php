@@ -3,7 +3,7 @@
 Plugin Name: Order Products to each category page
 Description: Mostra a lista de produtos da categoria na página de edição da categoria com campos para modificar a ordem de exibição na página da categoria.
 Version: 1.2
-Author: Ariel
+Author: Ariel Souza
 */
 
 include_once('includes/enqueue-scripts.php');

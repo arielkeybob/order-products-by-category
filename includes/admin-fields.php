@@ -22,9 +22,11 @@ function display_category_products_field($term) {
     // Campo de seleção para a ordenação
     echo '<label for="product_ordering">Order by:</label>';
     echo '<select id="product_ordering" name="product_ordering">';
+    echo '<option value="default" ' . selected('default', $product_ordering, !$product_ordering) . '>Default</option>'; // Marque como selecionado se não houver valor salvo
     echo '<option value="title" ' . selected('title', $product_ordering, false) . '>Title</option>';
     echo '<option value="order_value" ' . selected('order_value', $product_ordering, false) . '>Custom Order</option>';
     echo '</select>';
+
 
     if (empty($products)) {
         echo 'Nenhum produto nesta categoria.';

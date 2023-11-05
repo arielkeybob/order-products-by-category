@@ -33,5 +33,12 @@ function custom_order_by_order_value($query) {
             $query->set('orderby', 'title');
             $query->set('order', 'ASC');
         }
+        // Adicionar a condição para a opção "default"
+        elseif ($product_ordering === 'default') {
+            // Não faça nenhuma alteração na consulta, mantenha a ordem padrão do WordPress
+            // Não é necessário adicionar nenhum código aqui
+        }
     }
 }
+add_action('pre_get_posts', 'custom_order_by_order_value');
+

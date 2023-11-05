@@ -12,17 +12,17 @@ jQuery(function($) {
     // Define as propriedades da lista arrastável
     $("#sortable-list").disableSelection();
 
-    // Ocultar lista se "Por Título" for selecionado
-    var productOrdering = $("#product_ordering").val();
-    if (productOrdering === "title") {
+    // Ocultar lista se "Por Título", "Padrão" for selecionado ou se não houver valor definido
+    var productOrdering = $("#product_ordering").val() || "default"; // Define "default" como fallback
+    if (productOrdering === "title" || productOrdering === "default") {
         $("#sortable-list").hide();
     }
 
     // Monitorar a mudança na seleção
     $("#product_ordering").change(function() {
         var selectedValue = $(this).val();
-        if (selectedValue === "title") {
-            // Se "Por Título" for selecionado, oculte a lista
+        if (selectedValue === "title" || selectedValue === "default") {
+            // Se "Por Título" ou "Padrão" for selecionado, oculte a lista
             $("#sortable-list").hide();
         } else {
             // Caso contrário, mostre a lista
