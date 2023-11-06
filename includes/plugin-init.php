@@ -1,11 +1,11 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+    exit; // Saída se acessado diretamente.
 }
 
 // Função de depuração para mostrar os valores dos campos no console na página de frontend
 function display_category_meta_tags() {
-    if (is_product_category()) {
+    if (is_product_category() && defined('WP_DEBUG') && WP_DEBUG) { // Verifica se está em modo de depuração
         $category = get_queried_object();
 
         if ($category) {
@@ -19,13 +19,13 @@ function display_category_meta_tags() {
                     $order_value = get_post_meta($product_id, 'order_in_category_' . $category_id, true);
                     $menu_order = get_post_field('menu_order', $product_id); // Adicionando o valor de menu_order
 
-                    echo 'console.log("Product ID: ' . $product_id . ', Order Value: ' . $order_value . ', Menu Order: ' . $menu_order . '");';
+                    // Usando esc_js para garantir que os valores sejam seguros para uso em JavaScript
+                    echo 'console.log("Product ID: ' . esc_js($product_id) . ', Order Value: ' . esc_js($order_value) . ', Menu Order: ' . esc_js($menu_order) . '");';
                 }
                 echo '</script>';
             }
         }
     }
 }
-// Other unchanged PHP code snippets
-// Debug function to display field values in the console on the frontend page
-add_action('wp_footer', 'display_category_meta_tags', 20); // Priority 20
+// Outros trechos de código PHP inalterados
+add_action('wp_footer', 'display_category_meta_tags', 20); // Prioridade 20
