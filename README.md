@@ -1,11 +1,12 @@
 # Plugin de Ordenação de Produtos por Categoria para WooCommerce
 
-Este plugin permite que os administradores do WooCommerce ordenem os produtos dentro de cada categoria usando uma interface de arrastar e soltar intuitiva. A ordenação dos produtos pode ser personalizada por categoria, sem afetar a ordenação global ou outras categorias.
+Este plugin permite que os administradores do WooCommerce ordenem os produtos dentro de cada categoria. Com a nova atualização, agora é possível escolher entre ordenação padrão, ordenação por título ou uma ordenação personalizada através de uma interface de arrastar e soltar intuitiva.
 
 ## Características
 
 - Ordenação personalizada para produtos em cada categoria.
-- Interface de arrastar e soltar fácil de usar.
+- Novo: Seletor de tipo de ordenação com opções para ordenação padrão, por título ou customizada.
+- Interface de arrastar e soltar fácil de usar para ordenação personalizada.
 - Não interfere na ordenação global de produtos ou em outras configurações de categoria.
 
 ## Instalação
@@ -22,7 +23,11 @@ Para mais detalhes, veja [o guia de instalação](docs/installation.md).
 
 ## Uso
 
-Depois de instalar e ativar o plugin, vá para `Produtos > Categorias` e selecione a categoria que deseja ordenar. Dentro da página de edição da categoria, você encontrará a interface de arrastar e soltar para definir a ordenação dos produtos.
+Depois de instalar e ativar o plugin, vá para `Produtos > Categorias` e selecione a categoria que deseja ordenar. Na página de edição da categoria, use o dropdown para escolher o tipo de ordenação dos produtos:
+
+- **Padrão (Default):** Ordenação definida pelo WooCommerce ou WordPress.
+- **Por Título:** Ordena os produtos pelo título, em ordem alfabética.
+- **Ordenação Customizada:** Ativa a interface de arrastar e soltar para definir a ordenação dos produtos.
 
 Para instruções completas, consulte [o guia de uso](docs/usage.md).
 
