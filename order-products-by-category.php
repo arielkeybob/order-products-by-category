@@ -6,29 +6,16 @@ Version: 1.0.5
 Author: Ariel Souza
 */
 
-include_once('includes/enqueue-scripts.php');
-include_once('includes/admin-fields.php');
-include_once('includes/product-ordering.php');
-include_once('includes/utility-functions.php');
-include_once('includes/plugin-init.php');
-include_once('includes/auto-adjustments.php');
-include_once('includes/settings-page.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/enqueue-scripts.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/admin-fields.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/product-ordering.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/utility-functions.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/plugin-init.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/auto-adjustments.php');
+require_once(plugin_dir_path(__FILE__) . 'includes/settings-page.php');
 
+
+define('ORDER_PRODUCTS_BY_CATEGORY_URL', plugin_dir_url(__FILE__));
 
 // Variável global para armazenar o valor de ordenação
 global $order_value;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -33,7 +33,6 @@ if ($should_cleanup === 'yes') {
     );
 
     // Remove metadados das categorias
-    // Substitua 'product_ordering' pelo ID correto que você usou em seus metadados de termo
     $term_meta_key = 'product_ordering';
     $wpdb->delete(
         $wpdb->termmeta,
