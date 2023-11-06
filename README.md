@@ -1,49 +1,51 @@
-# Order Products by Category for WooCommerce
+# Plugin de Ordenação de Produtos por Categoria para WooCommerce
 
-Order Products by Category é um plugin para WooCommerce que permite aos administradores do site ordenar produtos dentro de categorias específicas. Com uma interface de arrastar e soltar fácil de usar, os administradores podem personalizar a ordem dos produtos como preferirem, diretamente da página de edição da categoria.
+Este plugin permite que os administradores do WooCommerce ordenem os produtos dentro de cada categoria usando uma interface de arrastar e soltar intuitiva. A ordenação dos produtos pode ser personalizada por categoria, sem afetar a ordenação global ou outras categorias.
 
 ## Características
 
-- **Ordenação Personalizada**: Defina a ordem dos produtos em qualquer categoria usando uma interface de arrastar e soltar.
-- **Ordenação por Título**: Permita que a ordem dos produtos siga o título alfabeticamente.
-- **Opção Padrão**: Mantenha a ordem padrão do WooCommerce caso nenhuma ordenação personalizada seja necessária.
-- **Configurações Globais**: Ative ou desative a funcionalidade de ordenação para todas as categorias através de uma página de configurações dedicada.
+- Ordenação personalizada para produtos em cada categoria.
+- Interface de arrastar e soltar fácil de usar.
+- Não interfere na ordenação global de produtos ou em outras configurações de categoria.
 
 ## Instalação
 
-1. Faça o upload do plugin para o diretório `/wp-content/plugins/`, ou instale o plugin diretamente através da tela de plugins do WordPress.
-2. Ative o plugin no menu 'Plugins' no WordPress.
-3. Vá para a página de edição de qualquer categoria de produtos para começar a ordenação dos produtos.
+Para instalar o plugin, siga estes passos:
+
+1. Baixe o arquivo ZIP do plugin.
+2. Faça login no seu painel de administração do WordPress.
+3. Navegue até `Plugins > Adicionar Novo` e clique em `Enviar Plugin`.
+4. Escolha o arquivo ZIP baixado e clique em `Instalar Agora`.
+5. Após a instalação, clique em `Ativar Plugin`.
+
+Para mais detalhes, veja [o guia de instalação](docs/installation.md).
 
 ## Uso
 
-Após ativar o plugin, você encontrará as seguintes opções na página de edição de cada categoria de produtos:
+Depois de instalar e ativar o plugin, vá para `Produtos > Categorias` e selecione a categoria que deseja ordenar. Dentro da página de edição da categoria, você encontrará a interface de arrastar e soltar para definir a ordenação dos produtos.
 
-- **Default**: Utiliza a ordenação padrão do WooCommerce.
-- **Title**: Ordena produtos alfabeticamente pelo título.
-- **Custom Order**: Permite arrastar e soltar para definir a ordem dos produtos.
+Para instruções completas, consulte [o guia de uso](docs/usage.md).
 
-Escolha a opção desejada e ajuste a ordem conforme necessário.
+## Documentação para Desenvolvedores
 
-## Configurações Globais
+Se você é um desenvolvedor e deseja entender melhor o plugin ou contribuir para o projeto, confira [o guia para desenvolvedores](docs/developer-guide.md).
 
-Para configurar a ordenação globalmente para todas as categorias:
+## Contribuindo
 
-1. Vá para `Settings > Order by Category` no painel de administração do WordPress.
-2. Marque ou desmarque a opção de ativação conforme desejado.
+Contribuições são sempre bem-vindas, seja na forma de feedback, relatórios de bugs ou pull requests. Por favor, leia nosso [guia de contribuição](docs/contributing.md) para mais informações sobre como começar.
 
-## Desinstalação
+## Perguntas Frequentes
 
-Se você desinstalar o plugin através do painel de administração, todos os dados associados serão mantidos por padrão. No entanto, há uma opção nas configurações do plugin para remover todos os dados ao desinstalar, se você preferir.
+Para respostas a perguntas comuns, veja [as perguntas frequentes](docs/faq.md).
 
-## Contribuições
+## Changelog
 
-Contribuições são bem-vindas! Se você gostaria de contribuir com o plugin, por favor, faça um fork do repositório e envie um pull request.
+Para ver o histórico de alterações do plugin, confira o [changelog](docs/changelog.md).
 
 ## Suporte
 
-Se você encontrar um problema ou tiver uma sugestão, por favor abra um issue no repositório do GitHub do plugin.
+Se precisar de ajuda ou tiver alguma pergunta, por favor, abra uma issue em nosso [rastreador de problemas no GitHub](https://github.com/arielkeybob/order-products-by-category/issues).
 
-## Licença
+---
 
-O plugin Order Products by Category é licenciado sob a GPL v2 ou posterior.
+Obrigado por usar e contribuir para o Plugin de Ordenação de Produtos por Categoria!
