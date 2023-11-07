@@ -25,6 +25,16 @@ Você deve ter recebido uma cópia da Licença Pública Geral GNU
 junto com este programa.
 */
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { //phpcs:ignore
+	add_action( 'admin_notices', 'opbc_admin_notice' );
+}
+
+
 define( 'PLUGIN_VERSION', '1.0.5' );
 
 require_once(plugin_dir_path(__FILE__) . 'includes/enqueue-scripts.php');
@@ -41,4 +51,16 @@ define('ORDER_PRODUCTS_BY_CATEGORY_URL', plugin_dir_url(__FILE__));
 // Variável global para armazenar o valor de ordenação
 global $order_value;
 
+/**
+ * Add admin notice if there is no woocommerce.
+ *
+ * @since    1.0.0
+ */
+function opbc_admin_notice() {
+	?>
+		<div class="notice notice-error">
+			<p><?php esc_html_e( 'Product Rearrange for WooCommerce : Woocommerce should be activated before you can proceeed!', 'wcpr' ); ?></p>
+		</div>
+	<?php
+}
 
