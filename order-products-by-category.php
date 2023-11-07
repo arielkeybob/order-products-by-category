@@ -6,6 +6,8 @@ Version: 1.0.5
 Author: Ariel Souza
 */
 
+define( 'PLUGIN_VERSION', '1.0.5' );
+
 require_once(plugin_dir_path(__FILE__) . 'includes/enqueue-scripts.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/admin-fields.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/product-ordering.php');
@@ -19,3 +21,5 @@ define('ORDER_PRODUCTS_BY_CATEGORY_URL', plugin_dir_url(__FILE__));
 
 // Variável global para armazenar o valor de ordenação
 global $order_value;
+
+
