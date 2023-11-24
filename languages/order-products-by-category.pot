@@ -1,0 +1,71 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Order Products to each category page\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-24 18:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.1\n"
+"X-Domain: order-products-by-category"
+
+#: includes/admin-fields.php:42
+msgid "A ordenação personalizada está desativada."
+msgstr ""
+
+#. Author of the plugin
+msgid "Ariel Souza"
+msgstr ""
+
+#: includes/settings-page.php:46
+msgid "Ativar Ordenação"
+msgstr ""
+
+#: includes/settings-page.php:38
+msgid "Configurações de Ordenação por Categoria"
+msgstr ""
+
+#: includes/settings-page.php:51
+msgid "Deletar todos os dados na desinstalação"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://arielsouza.com.br/"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Mostra a lista de produtos da categoria na página de edição da categoria com "
+"campos para modificar a ordem de exibição na página da categoria."
+msgstr ""
+
+#: includes/admin-fields.php:71
+msgid "Nenhum produto nesta categoria."
+msgstr ""
+
+#: includes/admin-fields.php:57
+msgid "Ordem Personalizada"
+msgstr ""
+
+#: includes/admin-fields.php:52
+msgid "Ordenar por:"
+msgstr ""
+
+#. Name of the plugin
+msgid "Order Products to each category page"
+msgstr ""
+
+#: includes/admin-fields.php:55
+msgid "Padrão"
+msgstr ""
+
+#: includes/admin-fields.php:56
+msgid "Título"
+msgstr ""

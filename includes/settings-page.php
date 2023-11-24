@@ -35,21 +35,21 @@ add_action( 'admin_menu', 'opbycat_register_options_page' );
 function opbycat_options_page() {
     ?>
     <div class="wrap">
-    <h2>Configurações de Ordenação por Categoria</h2>
+    <h2><?php echo esc_html__('Configurações de Ordenação por Categoria', 'order-products-by-category'); ?></h2>
     <form method="post" action="options.php">
     <?php
-    settings_fields( 'opbycat_options_group' );
-    do_settings_sections( 'opbycat_options_group' );
+    settings_fields('opbycat_options_group');
+    do_settings_sections('opbycat_options_group');
     ?>
     <table class="form-table">
         <tr valign="top">
-        <th scope="row">Ativar Ordenação</th>
-        <td><input type="checkbox" id="opbycat_enable_ordering" name="opbycat_enable_ordering" value="yes" <?php checked( 'yes', get_option( 'opbycat_enable_ordering' ), true ); ?>></td>
+        <th scope="row"><?php echo esc_html__('Ativar Ordenação', 'order-products-by-category'); ?></th>
+        <td><input type="checkbox" id="opbycat_enable_ordering" name="opbycat_enable_ordering" value="yes" <?php checked('yes', get_option('opbycat_enable_ordering'), true); ?>></td>
         </tr>
          
         <tr valign="top">
-        <th scope="row">Deletar todos os dados na desinstalação</th>
-        <td><input type="checkbox" id="opbycat_cleanup_data" name="opbycat_cleanup_data" value="yes" <?php checked( 'yes', get_option( 'opbycat_cleanup_data' ), true ); ?>></td>
+        <th scope="row"><?php echo esc_html__('Deletar todos os dados na desinstalação', 'order-products-by-category'); ?></th>
+        <td><input type="checkbox" id="opbycat_cleanup_data" name="opbycat_cleanup_data" value="yes" <?php checked('yes', get_option('opbycat_cleanup_data'), true); ?>></td>
         </tr>
     </table>
     
@@ -58,3 +58,4 @@ function opbycat_options_page() {
     </div>
     <?php
 }
+

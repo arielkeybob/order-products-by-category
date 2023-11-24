@@ -39,7 +39,7 @@ function get_ordering_status() {
  * Display a message indicating that ordering is disabled.
  */
 function display_ordering_disabled_message() {
-    echo '<tr class="form-field"><th scope="row" valign="top"><label>A ordenação personalizada está desativada.</label></th></tr>';
+    echo '<tr class="form-field"><th scope="row" valign="top"><label>' . esc_html__('A ordenação personalizada está desativada.', 'order-products-by-category') . '</label></th></tr>';
 }
 
 /**
@@ -49,15 +49,16 @@ function display_ordering_disabled_message() {
  */
 function display_ordering_dropdown($product_ordering) {
     echo '<tr class="form-field">';
-    echo '<th scope="row" valign="top"><label for="product_ordering">Ordenar por:</label></th>';
+    echo '<th scope="row" valign="top"><label for="product_ordering">' . esc_html__('Ordenar por:', 'order-products-by-category') . '</label></th>';
     echo '<td>';
     echo '<select id="product_ordering" name="product_ordering" class="postform">';
-    echo '<option value="default" ' . selected('default', $product_ordering, !$product_ordering) . '>Padrão</option>';
-    echo '<option value="title" ' . selected('title', $product_ordering, false) . '>Título</option>';
-    echo '<option value="order_value" ' . selected('order_value', $product_ordering, false) . '>Ordem Personalizada</option>';
+    echo '<option value="default" ' . selected('default', $product_ordering, !$product_ordering) . '>' . esc_html__('Padrão', 'order-products-by-category') . '</option>';
+    echo '<option value="title" ' . selected('title', $product_ordering, false) . '>' . esc_html__('Título', 'order-products-by-category') . '</option>';
+    echo '<option value="order_value" ' . selected('order_value', $product_ordering, false) . '>' . esc_html__('Ordem Personalizada', 'order-products-by-category') . '</option>';
     echo '</select>';
     echo '</td></tr>';
 }
+
 
 /**
  * Display the list of products for ordering.
@@ -67,7 +68,7 @@ function display_ordering_dropdown($product_ordering) {
 function display_products_list($category_id) {
     $products = get_category_products($category_id);
     if (empty($products)) {
-        echo '<tr class="form-field"><th scope="row" valign="top"></th><td>Nenhum produto nesta categoria.</td></tr>';
+        echo '<tr class="form-field"><th scope="row" valign="top"></th><td>' . esc_html__('Nenhum produto nesta categoria.', 'order-products-by-category') . '</td></tr>';
         return;
     }
 

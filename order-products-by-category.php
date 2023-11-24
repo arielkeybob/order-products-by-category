@@ -7,7 +7,7 @@ Author: Ariel Souza
 Author URI: https://arielsouza.com.br/
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: 
+Text Domain: order-products-by-category
 */
 
 /* 
@@ -37,6 +37,14 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
 
 define( 'PLUGIN_VERSION', '1.0.5' );
 
+function order_products_by_category_load_textdomain() {
+    load_plugin_textdomain('order-products-by-category', false, basename(dirname(__FILE__)) . '/languages');
+}
+
+add_action('init', 'order_products_by_category_load_textdomain');
+
+
+require_once(plugin_dir_path(__FILE__) . 'includes/plugin-links.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/enqueue-scripts.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/admin-fields.php');
 require_once(plugin_dir_path(__FILE__) . 'includes/product-ordering.php');
@@ -63,4 +71,9 @@ function opbc_admin_notice() {
 		</div>
 	<?php
 }
+
+
+
+
+
 
